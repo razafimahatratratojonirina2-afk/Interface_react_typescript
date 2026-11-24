@@ -1,0 +1,37 @@
+.chiffre {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+  gap: 1.5rem;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 2rem 1.5rem;
+  box-sizing: border-box;
+}
+.age,
+.nombre-jeune-fille,
+.nombre-atelier,
+.description-association {
+  font-size: 15px;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.age p,
+.nombre-jeune-fille p,
+.nombre-atelier p,
+.description-association p {
+  text-align: center;
+  font-size: 12px;
+  margin: 0;
+}
+.age span,
+.nombre-jeune-fille span,
+.nombre-atelier span,
+.description-association span {
+  font-size: 25px;
+  color: rgb(232, 84, 109);
+  font-family: 'Island-Moments', cursive;
+  font-weight: bold;
+}

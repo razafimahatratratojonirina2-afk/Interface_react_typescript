@@ -1,0 +1,17 @@
+// Vite ne peut pas deviner un chemin construit dynamiquement ('src/assets/image/' + nom).
+// import.meta.glob liste toutes les images au moment du build et leur donne
+// la bonne URL finale (avec hash) dans le dossier dist.
+const images = import.meta.glob<string>('../assets/image/*.{png,jpg,jpeg,webp,svg,gif}', {
+  eager: true,
+  query: '?url',
+  import: 'default',
+});
+
+export default function getImageUrl(person?: { image?: string }): string {
+  const nom = person?.image;
+  const url = images['../assets/image/' + nom];
+  if (!url && import.meta.env.DEV) {
+    console.warn(`[getImageUrl] Image introuvable : "${nom}"`);
+  }
+  return url ?? '';
+}
